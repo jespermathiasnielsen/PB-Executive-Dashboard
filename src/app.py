@@ -328,7 +328,7 @@ with tab_aum:
             textfont=dict(size=11),
         ))
         fig_cli.update_layout(
-            **{k: v for k, v in PLOTLY_BASE.items()},
+            **{k: v for k, v in PLOTLY_BASE.items() if k not in ("xaxis", "yaxis")},
             title=dict(text="Client Count by Segment", font=dict(size=13, color=DB_TEXT)),
             showlegend=False,
             yaxis=dict(showgrid=True, gridcolor=DB_BORDER, linecolor=DB_BORDER),

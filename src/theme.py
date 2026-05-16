@@ -45,10 +45,24 @@ PAGE_CSS = f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+:root {{
+    color-scheme: light !important;
+}}
+
 html, body, [class*="css"] {{
     font-family: 'Inter', Arial, sans-serif;
-    background-color: {DB_OFFWHITE};
-    color: {DB_TEXT};
+    background-color: {DB_OFFWHITE} !important;
+    color: {DB_TEXT} !important;
+}}
+
+[data-testid="stAppViewContainer"],
+[data-testid="stMain"],
+.main, section.main {{
+    background-color: {DB_OFFWHITE} !important;
+}}
+
+[data-testid="stSidebar"] {{
+    background-color: {DB_WHITE} !important;
 }}
 
 /* Top header bar */
