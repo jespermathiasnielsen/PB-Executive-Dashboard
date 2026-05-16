@@ -63,7 +63,7 @@ def delta_str(now, prev, fmt=".1f", invert=False):
         up = not up
     arrow = "▲" if up else "▼"
     color = DB_GREEN if up else DB_RED
-    return f'<span style="color:{color};font-size:0.78rem;font-weight:600">{arrow} {abs(diff):{fmt}}</span>'
+    return f'<span style="color:{color};font-size:0.82rem;font-weight:700">{arrow} {abs(diff):{fmt}}</span>'
 
 
 def rag_from_progress(pct, direction="higher_better"):
@@ -570,7 +570,7 @@ with tab_actions:
 
     st.markdown("<div style='height:32px'></div>", unsafe_allow_html=True)
     st.markdown(
-        f'<div style="font-size:0.72rem;color:{DB_MUTED};">'
+        f'<div style="font-size:0.78rem;color:{DB_MUTED};margin-top:8px;">'
         f'Private Banking &amp; Investments · Execution Office · Last updated: {latest_q} · Confidential'
         f'</div>',
         unsafe_allow_html=True,
