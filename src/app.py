@@ -12,10 +12,10 @@ import numpy as np
 from data import (
     generate_aum_history, generate_kpi_history, generate_commercial_metrics,
     generate_client_segments, generate_actions,
-    TARGETS_2028, ACTUALS_Q1_2026, MARKET_COLORS, QUARTERS
+    TARGETS_2028, ACTUALS_Q1_2026, QUARTERS
 )
 from theme import (
-    PAGE_CSS, PLOTLY_BASE, SEGMENT_COLORS,
+    PAGE_CSS, PLOTLY_BASE, SEGMENT_COLORS, MARKET_COLORS,
     DB_NAVY, DB_BLUE, DB_TEXT, DB_MUTED, DB_BORDER, DB_WHITE, DB_OFFWHITE,
     DB_GREEN, DB_AMBER, DB_RED, DB_LIGHT,
     rag_badge, status_pill, progress_bar
