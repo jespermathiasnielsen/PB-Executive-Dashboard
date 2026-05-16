@@ -1,4 +1,4 @@
-"""Danske Bank brand palette and shared styling constants."""
+"""Brand palette and shared styling constants."""
 
 # ── Core palette ──────────────────────────────────────────────────────────────
 DB_NAVY      = "#003F63"   # Primary — Pantone 2955 C
@@ -45,9 +45,8 @@ PAGE_CSS = f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-:root {{
-    color-scheme: light !important;
-}}
+/* Force light mode everywhere */
+:root {{ color-scheme: light !important; }}
 
 html, body, [class*="css"] {{
     font-family: 'Inter', Arial, sans-serif;
@@ -65,32 +64,69 @@ html, body, [class*="css"] {{
     background-color: {DB_WHITE} !important;
 }}
 
-/* Top header bar */
+/* ── Tab bar ── */
+[data-testid="stTabs"] {{
+    border-bottom: 2px solid {DB_BORDER};
+    margin-bottom: 4px;
+}}
+
+[data-testid="stTabs"] button {{
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: {DB_MUTED} !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    padding: 10px 18px !important;
+    margin-bottom: -2px;
+    border-radius: 0 !important;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}}
+
+[data-testid="stTabs"] button:hover {{
+    color: {DB_TEXT} !important;
+    background: {DB_LIGHT} !important;
+}}
+
+[data-testid="stTabs"] button[aria-selected="true"] {{
+    color: {DB_NAVY} !important;
+    font-weight: 600 !important;
+    border-bottom: 2px solid {DB_NAVY} !important;
+    background: transparent !important;
+}}
+
+[data-testid="stTabs"] button p {{
+    font-size: 0.82rem !important;
+}}
+
+/* ── Top header bar ── */
 .db-header {{
     background-color: {DB_NAVY};
     color: white;
     padding: 18px 32px;
-    border-radius: 0;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }}
 .db-header h1 {{
     margin: 0;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     font-weight: 600;
     letter-spacing: -0.02em;
     color: white;
 }}
 .db-header .subtitle {{
-    font-size: 0.85rem;
-    opacity: 0.75;
+    font-size: 0.82rem;
+    opacity: 0.7;
     font-weight: 300;
     color: white;
+    margin-top: 3px;
 }}
 
-/* KPI cards */
+/* ── KPI cards ── */
 .kpi-card {{
     background: {DB_WHITE};
     border: 1px solid {DB_BORDER};
@@ -99,74 +135,74 @@ html, body, [class*="css"] {{
     height: 100%;
 }}
 .kpi-card .label {{
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: 0.72rem;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.07em;
     color: {DB_MUTED};
     margin-bottom: 6px;
 }}
 .kpi-card .value {{
-    font-size: 2rem;
+    font-size: 1.9rem;
     font-weight: 700;
     color: {DB_TEXT};
     line-height: 1.1;
 }}
 .kpi-card .delta {{
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     margin-top: 4px;
     font-weight: 500;
 }}
 .kpi-card .target-line {{
-    font-size: 0.72rem;
+    font-size: 0.71rem;
     color: {DB_MUTED};
-    margin-top: 2px;
+    margin-top: 3px;
 }}
 
-/* Section headers */
+/* ── Section headers ── */
 .section-header {{
-    font-size: 0.8rem;
-    font-weight: 600;
+    font-size: 0.72rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: {DB_MUTED};
-    padding: 12px 0 8px 0;
-    border-bottom: 2px solid {DB_NAVY};
+    letter-spacing: 0.1em;
+    color: {DB_NAVY};
+    padding: 14px 0 8px 0;
+    border-bottom: 1.5px solid {DB_BORDER};
     margin-bottom: 16px;
 }}
 
-/* RAG badge */
-.rag-on   {{ color: {DB_GREEN}; background: {DB_GREEN_BG}; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; }}
-.rag-watch {{ color: {DB_AMBER}; background: {DB_AMBER_BG}; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; }}
-.rag-risk  {{ color: {DB_RED};   background: {DB_RED_BG};   padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; }}
+/* ── RAG badges ── */
+.rag-on   {{ color: {DB_GREEN}; background: {DB_GREEN_BG}; padding: 2px 8px; border-radius: 4px; font-size: 0.71rem; font-weight: 600; }}
+.rag-watch {{ color: {DB_AMBER}; background: {DB_AMBER_BG}; padding: 2px 8px; border-radius: 4px; font-size: 0.71rem; font-weight: 600; }}
+.rag-risk  {{ color: {DB_RED};   background: {DB_RED_BG};   padding: 2px 8px; border-radius: 4px; font-size: 0.71rem; font-weight: 600; }}
 
-/* Action table */
+/* ── Action table ── */
 .action-table {{ width: 100%; border-collapse: collapse; font-size: 0.82rem; }}
 .action-table th {{
     background: {DB_NAVY};
     color: white;
     font-weight: 500;
-    font-size: 0.72rem;
+    font-size: 0.71rem;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    padding: 8px 12px;
+    letter-spacing: 0.07em;
+    padding: 9px 14px;
     text-align: left;
 }}
-.action-table td {{ padding: 8px 12px; border-bottom: 1px solid {DB_BORDER}; vertical-align: top; }}
+.action-table td {{ padding: 9px 14px; border-bottom: 1px solid {DB_BORDER}; vertical-align: top; color: {DB_TEXT}; }}
 .action-table tr:hover td {{ background: {DB_LIGHT}; }}
 
-/* Status pills */
-.status-done      {{ color: {DB_GREEN}; background: {DB_GREEN_BG}; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; white-space: nowrap; }}
-.status-progress  {{ color: {DB_AMBER}; background: {DB_AMBER_BG}; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; white-space: nowrap; }}
-.status-notstart  {{ color: {DB_MUTED}; background: {DB_BORDER}; padding: 2px 8px; border-radius: 4px; font-size: 0.72rem; font-weight: 600; white-space: nowrap; }}
+/* ── Status pills ── */
+.status-done      {{ color: {DB_GREEN}; background: {DB_GREEN_BG}; padding: 2px 8px; border-radius: 4px; font-size: 0.71rem; font-weight: 600; white-space: nowrap; }}
+.status-progress  {{ color: {DB_AMBER}; background: {DB_AMBER_BG}; padding: 2px 8px; border-radius: 4px; font-size: 0.71rem; font-weight: 600; white-space: nowrap; }}
+.status-notstart  {{ color: {DB_MUTED}; background: {DB_BORDER}; padding: 2px 8px; border-radius: 4px; font-size: 0.71rem; font-weight: 600; white-space: nowrap; }}
 
-/* Progress bar */
-.progress-wrap {{ background: {DB_BORDER}; border-radius: 100px; height: 6px; margin-top: 8px; overflow: hidden; }}
-.progress-fill  {{ height: 6px; border-radius: 100px; background: {DB_NAVY}; }}
-.progress-fill-warn {{ height: 6px; border-radius: 100px; background: {DB_AMBER}; }}
-.progress-fill-risk {{ height: 6px; border-radius: 100px; background: {DB_RED}; }}
+/* ── Progress bars ── */
+.progress-wrap {{ background: {DB_BORDER}; border-radius: 100px; height: 5px; margin-top: 10px; overflow: hidden; }}
+.progress-fill       {{ height: 5px; border-radius: 100px; background: {DB_NAVY}; }}
+.progress-fill-warn  {{ height: 5px; border-radius: 100px; background: {DB_AMBER}; }}
+.progress-fill-risk  {{ height: 5px; border-radius: 100px; background: {DB_RED}; }}
 
-/* Card panels */
+/* ── Card panels ── */
 .panel {{
     background: {DB_WHITE};
     border: 1px solid {DB_BORDER};
@@ -175,10 +211,11 @@ html, body, [class*="css"] {{
     margin-bottom: 16px;
 }}
 
-/* Hide Streamlit chrome */
+/* ── Hide Streamlit chrome ── */
 #MainMenu, footer, header {{ visibility: hidden; }}
 .block-container {{ padding: 0 24px 40px 24px !important; max-width: 1280px; }}
 div[data-testid="stDecoration"] {{ display: none; }}
+div[data-testid="stToolbar"] {{ display: none; }}
 </style>
 """
 

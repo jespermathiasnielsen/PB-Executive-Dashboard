@@ -1,6 +1,6 @@
 """
 Private Banking & Investments — Executive Performance Dashboard
-Danske Bank Forward'28 Strategy Tracker
+Forward'28 Strategy Tracker
 """
 
 import streamlit as st
@@ -23,7 +23,7 @@ from theme import (
 
 # ── Page config ───────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="PB&I Executive Dashboard — Danske Bank",
+    page_title="PB&I Executive Dashboard",
     layout="wide",
     initial_sidebar_state="collapsed",
 )
@@ -84,12 +84,6 @@ def rag_from_progress(pct, direction="higher_better"):
 # ── Header ────────────────────────────────────────────────────────────────────
 st.markdown(f"""
 <div class="db-header">
-  <div>
-    <div style="font-size:1.1rem;font-weight:700;letter-spacing:-0.01em;color:white;">
-      &#9632;&nbsp; Danske Bank
-    </div>
-  </div>
-  <div style="width:1px;height:36px;background:rgba(255,255,255,0.25);margin:0 8px;"></div>
   <div>
     <h1>Private Banking &amp; Investments — Executive Dashboard</h1>
     <div class="subtitle">Forward'28 Strategy Tracker &nbsp;·&nbsp; {latest_q} &nbsp;·&nbsp; Confidential</div>
@@ -571,7 +565,7 @@ with tab_actions:
     st.markdown("<div style='height:32px'></div>", unsafe_allow_html=True)
     st.markdown(
         f'<div style="font-size:0.72rem;color:{DB_MUTED};">'
-        f'Private Banking &amp; Investments · Execution Office · Last updated: 2026-05-16 · Confidential'
+        f'Private Banking &amp; Investments · Execution Office · Last updated: {latest_q} · Confidential'
         f'</div>',
         unsafe_allow_html=True,
     )

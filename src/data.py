@@ -1,4 +1,4 @@
-"""Synthetic data engine anchored to Danske Bank Forward'28 public targets."""
+"""Synthetic data engine anchored to publicly disclosed Forward'28 strategy targets."""
 
 import numpy as np
 import pandas as pd
