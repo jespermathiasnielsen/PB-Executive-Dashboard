@@ -30,7 +30,7 @@ All targets are sourced from Danske Bank's publicly disclosed Forward'28 strateg
 ## Installation
 
 ```bash
-git clone https://github.com/jespermathiasnielsen/PB-Executive-Dashboard.git
+git clone https://github.com/ctrl-jesper/PB-Executive-Dashboard.git
 cd PB-Executive-Dashboard
 pip install -r requirements.txt
 streamlit run src/app.py
